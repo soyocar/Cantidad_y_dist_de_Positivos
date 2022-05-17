@@ -1,9 +1,19 @@
 import "./styles.css";
+let btnEnv = document.getElementById("enviar");
+let numeros, contar, contarposi, porcentaje: number;
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>`;
+btnEnv.addEventListener("click", () => {
+  contar = 0;
+  contarposi = 0;
+  numeros = Number(prompt("Ingrese un numero: "));
+  while (numeros !== 0) {
+    contar += 1;
+    if (numeros > 0) {
+      contarposi += 1;
+    }
+    numeros = Number(prompt("Ingrese un numero: "));
+  }
+  porcentaje = (contarposi / contar) * 100;
+
+  console.log(contarposi + " Positivos, " + porcentaje + " % del total");
+});
